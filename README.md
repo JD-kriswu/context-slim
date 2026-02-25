@@ -72,13 +72,15 @@ When exploring the codebase:
 ## 支持的语言
 
 - [x] Java
-- [ ] TypeScript (planned)
+- [x] Go
+- [x] TypeScript
+- [x] JavaScript
 - [ ] Python (planned)
 
 ## TODO
 
 - [x] Watch 模式（实时监听）
 - [x] Git pre-commit hook
+- [x] 多语言支持
 - [ ] 向量化搜索
 - [ ] tree-sitter 精确解析
-- [ ] 更多语言支持

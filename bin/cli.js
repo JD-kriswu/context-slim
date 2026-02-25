@@ -11,7 +11,7 @@ const { values, positionals } = parseArgs({
   options: {
     help: { type: 'boolean', short: 'h' },
     output: { type: 'string', short: 'o', default: '.context' },
-    lang: { type: 'string', short: 'l', default: 'java' },
+    lang: { type: 'string', short: 'l', default: 'auto' },
     top: { type: 'string', short: 'n', default: '5' },
   }
 });
@@ -31,7 +31,7 @@ Usage:
 
 Options:
   -o, --output <dir>   Output directory (default: .context)
-  -l, --lang <lang>    Language: java (default: java)
+  -l, --lang <lang>    Language: auto, java, go, typescript, javascript, all (default: auto)
   -n, --top <num>      Number of results for query (default: 5)
   -h, --help           Show this help
 `);
