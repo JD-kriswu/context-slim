@@ -28,6 +28,12 @@ context-slim query UserService
 
 # 更新（文件变更后）
 context-slim update /path/to/java/project
+
+# Watch 模式（实时监听变化）
+context-slim watch /path/to/java/project
+
+# 安装 Git hook（commit 前自动更新）
+context-slim hook /path/to/java/project
 ```
 
 ## 生成的文件
@@ -71,7 +77,8 @@ When exploring the codebase:
 
 ## TODO
 
-- [ ] 增量更新（watch 模式）
+- [x] Watch 模式（实时监听）
+- [x] Git pre-commit hook
 - [ ] 向量化搜索
 - [ ] tree-sitter 精确解析
 - [ ] 更多语言支持

@@ -3,6 +3,8 @@
 import { parseArgs } from 'node:util';
 import { resolve } from 'node:path';
 import { initContext, updateContext, queryContext } from '../lib/context.js';
+import { watchContext } from '../lib/watcher.js';
+import { installHook } from '../lib/hooks.js';
 
 const { values, positionals } = parseArgs({
   allowPositionals: true,
@@ -23,7 +25,9 @@ context-slim - L0/L1/L2 context optimization for LLM coding assistants
 Usage:
   context-slim init [path]              Scan project and generate L0/L1 summaries
   context-slim update [path]            Update summaries for changed files
+  context-slim watch [path]             Watch for changes and update incrementally
   context-slim query <keyword> [path]   Search context by keyword (vector search)
+  context-slim hook [path]              Install git pre-commit hook
 
 Options:
   -o, --output <dir>   Output directory (default: .context)
@@ -44,6 +48,16 @@ try {
     case 'update': {
       const projectPath = resolve(args[0] || '.');
       await updateContext(projectPath, values);
+      break;
+    }
+    case 'watch': {
+      const projectPath = resolve(args[0] || '.');
+      await watchContext(projectPath, values);
+      break;
+    }
+    case 'hook': {
+      const projectPath = resolve(args[0] || '.');
+      await installHook(projectPath);
       break;
     }
     case 'query': {

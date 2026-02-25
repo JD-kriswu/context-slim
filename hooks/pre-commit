@@ -1,0 +1,16 @@
+#!/bin/sh
+# context-slim pre-commit hook
+# Auto-updates .context/ before each commit
+
+# Get the project root
+PROJECT_ROOT=$(git rev-parse --show-toplevel)
+
+# Check if context-slim is available
+if command -v context-slim >/dev/null 2>&1; then
+  echo "Updating .context/..."
+  context-slim update "$PROJECT_ROOT"
+  git add "$PROJECT_ROOT/.context/"
+  echo "✓ Context updated"
+else
+  echo "Warning: context-slim not found, skipping context update"
+fi
