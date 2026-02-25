@@ -1,0 +1,25 @@
+{
+  "name": "context-slim",
+  "version": "0.1.0",
+  "description": "L0/L1/L2 context optimization for code projects",
+  "main": "index.js",
+  "bin": {
+    "context-slim": "./bin/cli.js"
+  },
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "keywords": [
+    "context",
+    "llm",
+    "claude",
+    "code"
+  ],
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "tree-sitter": "^0.21.1",
+    "tree-sitter-java": "^0.23.5"
+  }
+}
